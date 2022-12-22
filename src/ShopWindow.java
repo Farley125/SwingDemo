@@ -88,7 +88,6 @@ public class ShopWindow extends JFrame {
         j.add(label, BorderLayout.CENTER);
         j.add(buttonPanel, BorderLayout.NORTH);
 
-        j.show();
     }
 
     public static String getActionPerformed() {
@@ -105,10 +104,6 @@ public class ShopWindow extends JFrame {
 
     public static void setActionPerformed(String set) {
         actionPerformed = set;
-    }
-
-    public void display(JLabel display) {
-        label = display;
     }
 
 

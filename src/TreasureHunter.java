@@ -14,6 +14,9 @@ public class TreasureHunter
     private boolean hardMode;
     private boolean cheatMode;
     private boolean easyMode;
+    private boolean windowMade;
+    private GameWindow frame;
+    private ShopWindow shopWindow;
 
     // Variables for colors
     final String RED = "\033[0;31m";     // RED
@@ -35,6 +38,8 @@ public class TreasureHunter
         hardMode = false;
         cheatMode = false;
         easyMode = false;
+        frame = new GameWindow("Welcome to Treasure Hunter!");
+        shopWindow = new ShopWindow("Welcome to the Shop!");
     }
 
     // starts the game; this is the only public method
@@ -145,14 +150,17 @@ public class TreasureHunter
             System.out.println("Give up the hunt and e(X)it.");
             System.out.println();
             System.out.print("What's your next move? ");
-            GameWindow frame = new GameWindow("Welcome to Treasure Hunter!");
             while (choice.equals("")) {
                 choice = GameWindow.getChoice();
+                System.out.print("");
             }
+            frame.setVisible(false);
+            shopWindow.setVisible(true);
             processChoice(choice);
             choice = "";
             GameWindow.setChoice("");
             TreasureHunter.clearScreen();
+
             if (hunter.getRelics().indexOf("an Emerald") != -1 && hunter.getRelics().indexOf("a Cool Hat") != -1 && hunter.getRelics().indexOf("a Golden Relic") != -1) {
                 hunter.setGameOver(true);
             }
@@ -160,7 +168,7 @@ public class TreasureHunter
         if (hunter.getRelics().indexOf("an Emerald") != -1 && hunter.getRelics().indexOf("a Cool Hat") != -1 && hunter.getRelics().indexOf("a Golden Relic") != -1) {
             System.out.println("Congrats, you've collected all of the relics!");
         } else {
-            System.out.println("He stabbed your appendix and you bled out!\nYou die! (Game Over!)");
+            System.out.println("\nHe stabbed your appendix and you bled out!\nYou die! (Game Over!)");
         }
     }
 
@@ -172,6 +180,7 @@ public class TreasureHunter
     {
         if (choice.equals("B") || choice.equals("b") || choice.equals("S") || choice.equals("s"))
         {
+            shopWindow.setVisible(true);
             currentTown.enterShop(choice);
         }
         else if (choice.equals("M") || choice.equals("m"))

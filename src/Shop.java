@@ -131,7 +131,7 @@ public class Shop
         int costOfItem = checkMarketPrice(item, true);
         if (customer.buyItem(item, costOfItem))
         {
-            System.out.println("Ye' got yerself a " + GREEN + item +RESET + ". Come again soon.");
+            System.out.println("\nYe' got yerself a " + GREEN + item +RESET + ". Come again soon.");
         }
         else
         {
