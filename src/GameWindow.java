@@ -65,6 +65,12 @@ public class GameWindow extends JFrame {
             }
         });
 
+        choiceFive.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                performAction(evt.getActionCommand());
+            }
+        });
+
         //create new Font
         Font font = new Font("Courier", Font.BOLD,16);
 
@@ -76,7 +82,7 @@ public class GameWindow extends JFrame {
         buttonPanel.add(choiceThree);
         choiceFour.setBounds(5, 100, 100, 50);
         buttonPanel.add(choiceFour);
-        choiceFour.setBounds(5, 100, 100, 50);
+        choiceFive.setBounds(5, 100, 100, 50);
         buttonPanel.add(choiceFive);
 
         label.setFont(font);
