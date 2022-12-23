@@ -136,6 +136,7 @@ public class TreasureHunter
 
         while (!(choice.equals("X") || choice.equals("x")) && (hunter.isGameOver() == false))
         {
+            shopWindow.deactivateShop();
             System.out.println();
             System.out.println(currentTown.getLatestNews());
             System.out.println("***");
@@ -155,7 +156,6 @@ public class TreasureHunter
                 System.out.print("");
             }
             frame.setVisible(false);
-            shopWindow.setVisible(true);
             processChoice(choice);
             choice = "";
             GameWindow.setChoice("");
@@ -180,7 +180,8 @@ public class TreasureHunter
     {
         if (choice.equals("B") || choice.equals("b") || choice.equals("S") || choice.equals("s"))
         {
-            shopWindow.setVisible(true);
+            //shopWindow = new ShopWindow("Welcome to the Shop!");
+            shopWindow.activateShop();
             currentTown.enterShop(choice);
         }
         else if (choice.equals("M") || choice.equals("m"))

@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class ShopWindow extends JFrame {
 
-    private JFrame j;
+    private static JFrame j;
     private JLabel label;
     private JButton choiceOne;
     private JButton choiceTwo;
@@ -87,6 +87,7 @@ public class ShopWindow extends JFrame {
         label.setFont(font);
         j.add(label, BorderLayout.CENTER);
         j.add(buttonPanel, BorderLayout.NORTH);
+        j.setVisible(false);
 
     }
 
@@ -128,6 +129,14 @@ public class ShopWindow extends JFrame {
             actionPerformed = "Boat";
             test = true;
         }
+    }
+
+    public static void activateShop() {
+        j.setVisible(true);
+    }
+
+    public static void deactivateShop() {
+        j.setVisible(false);
     }
 
 }
